@@ -1,6 +1,5 @@
-package com.mistershorr.birthdaytracker
+package com.example.recipe
 
-import android.R.attr.password
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +12,8 @@ import com.backendless.Backendless
 import com.backendless.BackendlessUser
 import com.backendless.async.callback.AsyncCallback
 import com.backendless.exceptions.BackendlessFault
-import com.mistershorr.birthdaytracker.databinding.ActivityLoginBinding
+import com.example.myapplication.ui.home.HomeFragment
+import com.example.recipe.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {
@@ -69,8 +69,8 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT).show()
 
                         // launch the birthday list activity
-                        val birthdayListIntent = Intent(this@LoginActivity, BirthdayListActivity::class.java)
-                        startActivity(birthdayListIntent)
+                        val mainActivityIntent = Intent(this@LoginActivity, HomeFragment::class.java)
+                        startActivity(mainActivityIntent)
                         // finish this activity
                         finish()
                     }

@@ -1,4 +1,4 @@
-package com.mistershorr.birthdaytracker
+package com.example.recipe 
 
 // object keyword makes it so all the functions are
 // static functions
