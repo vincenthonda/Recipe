@@ -44,36 +44,9 @@ class RecipeAdapter (var recipeList: List<Person>) : RecyclerView.Adapter<Recipe
         }
     }
 
-    private fun calculateDaysLeft(person: Person): Long {
-        val calendarBday = Calendar.getInstance()
-        calendarBday.time = person.birthday
-        val calendarToday = Calendar.getInstance()
-        val bdayMonth = calendarBday.get(Calendar.MONTH)
-        val bdayDay = calendarBday.get(Calendar.DAY_OF_MONTH)
-        val todayMonth = calendarToday.get(Calendar.MONTH)
-        val todayDay = calendarToday.get(Calendar.DAY_OF_MONTH)
-        val todayYear = calendarToday.get(Calendar.YEAR)
-
-        if(todayMonth < bdayMonth ||
-            bdayMonth == todayMonth && bdayDay > todayDay) {
-            calendarBday.set(Calendar.YEAR, todayYear)
-        }
-
-        else if (bdayMonth == todayMonth && bdayDay ==todayDay){
-            calendarBday.set(Calendar.YEAR, todayYear)
-        }
-
-        else {
-            calendarBday.set(Calendar.YEAR, todayYear + 1)
-        }
-
-        var difference = calendarBday.timeInMillis - calendarToday.timeInMillis
-        var daysDiff = difference / (1000 * 60 * 60 * 24)
-
-        return daysDiff
-    }
+    
 
     override fun getItemCount(): Int {
-        return birthdayList.size
+        return recipeList.size
     }
 }
